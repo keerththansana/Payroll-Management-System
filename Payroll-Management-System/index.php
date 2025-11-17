@@ -31,67 +31,8 @@ if(!$_SESSION["user"])
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-            <header class="w3-container" style="padding-top:22px">
-                <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
-            </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3><?php  
-                $sql = "SELECT *FROM employee";
-                $result = $conn->query($sql);
-                echo $result->num_rows
-           ?>
-           </h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Employee</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-inr w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3><?php
-                $total = 0;  
-                $sql = "SELECT *FROM employee";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                    $garde = $row["grade"];
-                    $sql1 = "SELECT *FROM grade WHERE id = $garde";
-                    $result1 = $conn->query($sql1);
-                        if ($result1->num_rows > 0) {
-                            while($row1 = $result1->fetch_assoc()) {
-                            $total = $total + $row1["salary"];
-                            }
-                        }
-                    }
-                }
-                echo $total;
-                ?></h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Total Salary/Month</h4>
-      </div>
-    </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-right">
-          <h3><?php  
-                $sql = "SELECT *FROM department";
-                $result = $conn->query($sql);
-                echo $result->num_rows
-           ?>
-           </h3>
-        </div>
-        <div class="w3-clear"></div>
-        <h4>Department</h4>
-      </div>
+        
     </div>
   </div>
   <hr>
